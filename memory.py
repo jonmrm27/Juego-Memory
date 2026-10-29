@@ -57,6 +57,10 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+        if not any(hide):
+            title(f"Completado en {state['taps']} clics")
+            print(f"Juego completado en {state['taps']} clics")
+
 
 def draw():
     """Draw image and tiles."""
