@@ -3,9 +3,11 @@
 # Contenido #
 Este repositorio cuenta con el juego memory de la libreria de python **freegames** copiado usando el comando "freegames copy memory"
 
+Se realizó:
+- Contar y desplegar el numero de taps
+
 
 Faltan:
-- Contar y desplegar el numero de taps
 - Detectar cuando todos los cuadros se han destapado
 - Central el dígito en el cuadro
 - algo diferente a los dígitos para resolver el juego (que el usuario tenga mejor memoria)
