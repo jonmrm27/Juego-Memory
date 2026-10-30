@@ -46,6 +46,9 @@ def xy(count):
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     state['taps'] += 1
+
+    title(f"Memory - Clics: {state['taps']}")
+
     spot = index(x, y)
     mark = state['mark']
 
@@ -55,6 +58,10 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+
+        if not any(hide):
+            title(f"Completado en {state['taps']} clics")
+            print(f"Juego completado en {state['taps']} clics")
 
 
 def draw():
