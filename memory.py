@@ -22,6 +22,7 @@ EMOJIS = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
           '🐗', '🐴', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞']
 
 tiles = EMOJIS * 2
+
 state = {'mark': None, 'taps': 0}
 hide = [True] * 64
 
@@ -52,6 +53,9 @@ def xy(count):
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     state['taps'] += 1
+
+    title(f"Memory - Clics: {state['taps']}")
+
     spot = index(x, y)
     mark = state['mark']
 
@@ -61,6 +65,10 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+
+        if not any(hide):
+            title(f"Completado en {state['taps']} clics")
+            print(f"Juego completado en {state['taps']} clics")
 
 
 def draw():
@@ -82,7 +90,7 @@ def draw():
         up()
         goto(x + 25, y + 5)
         color('black')
-        write(tiles[mark], align='center', font=('Arial', 28, 'normal'))
+        write(tiles[mark], align='center', font=('Arial', 24, 'normal'))
 
     up()
     goto(-200, 190)
